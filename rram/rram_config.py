@@ -16,9 +16,6 @@ nominal_corner_only = True
 # Temperature corners to characterize
 # temperatures = [ 0, 25 100]
 
-# Parasitic extraction
-use_pex = True
-
 # Output directory for the results
 output_path = "rram"
 # Output file base name

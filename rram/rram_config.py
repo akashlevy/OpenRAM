@@ -23,3 +23,6 @@ output_name = "rram_{0}_{1}_{2}".format(word_size,num_words,tech_name)
 
 # Disable analytical models for full characterization (WARNING: slow!)
 # analytical_delay = False
+
+# Generate netlist only
+netlist_only = True

@@ -1,7 +1,7 @@
 # Data word size
 word_size = 16
 # Number of words in the memory
-num_words = 64
+num_words = 16
 
 # Technology to use in $OPENRAM_TECH
 tech_name = "freepdk45"

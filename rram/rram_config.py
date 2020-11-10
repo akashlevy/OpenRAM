@@ -4,7 +4,7 @@ word_size = 64
 num_words = 64
 
 # Technology to use in $OPENRAM_TECH
-tech_name = "scn4m_subm"
+tech_name = "freepdk45"
 
 # You can use the technology nominal corner only
 nominal_corner_only = True

@@ -609,17 +609,17 @@ XDEC_AND_47 out_3 out_7 out_10 decode_47 vdd gnd and3_dec
 XDEC_AND_63 out_3 out_7 out_11 decode_63 vdd gnd and3_dec
 .ENDS hierarchical_decoder
 
-* spice ptx M{0} {1} nmos_vtg m=13 w=0.11u l=0.05u pd=0.32u ps=0.32u as=0.01p ad=0.01p
+* spice ptx M{0} {1} nmos_vtg m=1 w=1.44u l=0.05u pd=2.98u ps=2.98u as=0.18p ad=0.18p
 
-* spice ptx M{0} {1} pmos_vtg m=13 w=0.3325u l=0.05u pd=0.77u ps=0.77u as=0.04p ad=0.04p
+* spice ptx M{0} {1} pmos_vtg m=1 w=4.32u l=0.05u pd=8.74u ps=8.74u as=0.54p ad=0.54p
 
 .SUBCKT pinv_0 A Z vdd gnd
 * INPUT : A 
 * OUTPUT: Z 
 * POWER : vdd 
 * GROUND: gnd 
-Mpinv_pmos Z A vdd vdd pmos_vtg m=13 w=0.3325u l=0.05u 
-Mpinv_nmos Z A gnd gnd nmos_vtg m=13 w=0.11u l=0.05u 
+Mpinv_pmos Z A vdd vdd pmos_vtg m=1 w=4.32u l=0.05u 
+Mpinv_nmos Z A gnd gnd nmos_vtg m=1 w=1.44u l=0.05u 
 .ENDS pinv_0
 
 .SUBCKT wordline_driver A B Z vdd gnd
@@ -831,17 +831,17 @@ Xwl_driver_and62 in_62 en wl_62 vdd gnd wordline_driver
 Xwl_driver_and63 in_63 en wl_63 vdd gnd wordline_driver
 .ENDS wordline_driver_array
 
-* spice ptx M{0} {1} nmos_vtg m=4 w=0.09u l=0.05u pd=0.28u ps=0.28u as=0.01p ad=0.01p
+* spice ptx M{0} {1} nmos_vtg m=1 w=0.36u l=0.05u pd=0.82u ps=0.82u as=0.04p ad=0.04p
 
-* spice ptx M{0} {1} pmos_vtg m=4 w=0.27u l=0.05u pd=0.64u ps=0.64u as=0.03p ad=0.03p
+* spice ptx M{0} {1} pmos_vtg m=1 w=1.08u l=0.05u pd=2.26u ps=2.26u as=0.14p ad=0.14p
 
 .SUBCKT pinv_1 A Z vdd gnd
 * INPUT : A 
 * OUTPUT: Z 
 * POWER : vdd 
 * GROUND: gnd 
-Mpinv_pmos Z A vdd vdd pmos_vtg m=4 w=0.27u l=0.05u 
-Mpinv_nmos Z A gnd gnd nmos_vtg m=4 w=0.09u l=0.05u 
+Mpinv_pmos Z A vdd vdd pmos_vtg m=1 w=1.08u l=0.05u 
+Mpinv_nmos Z A gnd gnd nmos_vtg m=1 w=0.36u l=0.05u 
 .ENDS pinv_1
 
 .SUBCKT pinv_2 A Z vdd gnd
@@ -849,8 +849,8 @@ Mpinv_nmos Z A gnd gnd nmos_vtg m=4 w=0.09u l=0.05u
 * OUTPUT: Z 
 * POWER : vdd 
 * GROUND: gnd 
-Mpinv_pmos Z A vdd vdd pmos_vtg m=13 w=0.3325u l=0.05u 
-Mpinv_nmos Z A gnd gnd nmos_vtg m=13 w=0.11u l=0.05u 
+Mpinv_pmos Z A vdd vdd pmos_vtg m=1 w=4.32u l=0.05u 
+Mpinv_nmos Z A gnd gnd nmos_vtg m=1 w=1.44u l=0.05u 
 .ENDS pinv_2
 
 .SUBCKT pbuf A Z vdd gnd
@@ -7176,17 +7176,13 @@ Mpinv_pmos Z A vdd vdd pmos_vtg m=1 w=0.54u l=0.05u
 Mpinv_nmos Z A gnd gnd nmos_vtg m=1 w=0.18u l=0.05u 
 .ENDS pinv_3
 
-* spice ptx M{0} {1} nmos_vtg m=2 w=0.18u l=0.05u pd=0.46u ps=0.46u as=0.02p ad=0.02p
-
-* spice ptx M{0} {1} pmos_vtg m=2 w=0.54u l=0.05u pd=1.18u ps=1.18u as=0.07p ad=0.07p
-
 .SUBCKT pinv_4 A Z vdd gnd
 * INPUT : A 
 * OUTPUT: Z 
 * POWER : vdd 
 * GROUND: gnd 
-Mpinv_pmos Z A vdd vdd pmos_vtg m=2 w=0.54u l=0.05u 
-Mpinv_nmos Z A gnd gnd nmos_vtg m=2 w=0.18u l=0.05u 
+Mpinv_pmos Z A vdd vdd pmos_vtg m=1 w=1.08u l=0.05u 
+Mpinv_nmos Z A gnd gnd nmos_vtg m=1 w=0.36u l=0.05u 
 .ENDS pinv_4
 
 .SUBCKT dff_buf_0 D Q Qb clk vdd gnd
@@ -7229,17 +7225,17 @@ Mpnand2_nmos1 Z B net1 gnd nmos_vtg m=1 w=0.18u l=0.05u
 Mpnand2_nmos2 net1 A gnd gnd nmos_vtg m=1 w=0.18u l=0.05u 
 .ENDS pnand2_0
 
-* spice ptx M{0} {1} nmos_vtg m=4 w=0.27u l=0.05u pd=0.64u ps=0.64u as=0.03p ad=0.03p
+* spice ptx M{0} {1} nmos_vtg m=1 w=1.08u l=0.05u pd=2.26u ps=2.26u as=0.14p ad=0.14p
 
-* spice ptx M{0} {1} pmos_vtg m=4 w=0.81u l=0.05u pd=1.72u ps=1.72u as=0.10p ad=0.10p
+* spice ptx M{0} {1} pmos_vtg m=1 w=3.2399999999999998u l=0.05u pd=6.58u ps=6.58u as=0.40p ad=0.40p
 
 .SUBCKT pinv_5 A Z vdd gnd
 * INPUT : A 
 * OUTPUT: Z 
 * POWER : vdd 
 * GROUND: gnd 
-Mpinv_pmos Z A vdd vdd pmos_vtg m=4 w=0.81u l=0.05u 
-Mpinv_nmos Z A gnd gnd nmos_vtg m=4 w=0.27u l=0.05u 
+Mpinv_pmos Z A vdd vdd pmos_vtg m=1 w=3.2399999999999998u l=0.05u 
+Mpinv_nmos Z A gnd gnd nmos_vtg m=1 w=1.08u l=0.05u 
 .ENDS pinv_5
 
 .SUBCKT pdriver A Z vdd gnd
@@ -7261,30 +7257,26 @@ Xpand2_nand A B zb_int vdd gnd pnand2_0
 Xpand2_inv zb_int Z vdd gnd pdriver
 .ENDS pand2
 
-* spice ptx M{0} {1} nmos_vtg m=5 w=0.28750000000000003u l=0.05u pd=0.68u ps=0.68u as=0.04p ad=0.04p
-
-* spice ptx M{0} {1} pmos_vtg m=5 w=0.865u l=0.05u pd=1.83u ps=1.83u as=0.11p ad=0.11p
-
 .SUBCKT pinv_6 A Z vdd gnd
 * INPUT : A 
 * OUTPUT: Z 
 * POWER : vdd 
 * GROUND: gnd 
-Mpinv_pmos Z A vdd vdd pmos_vtg m=5 w=0.865u l=0.05u 
-Mpinv_nmos Z A gnd gnd nmos_vtg m=5 w=0.28750000000000003u l=0.05u 
+Mpinv_pmos Z A vdd vdd pmos_vtg m=1 w=4.32u l=0.05u 
+Mpinv_nmos Z A gnd gnd nmos_vtg m=1 w=1.44u l=0.05u 
 .ENDS pinv_6
 
-* spice ptx M{0} {1} nmos_vtg m=19 w=0.3025u l=0.05u pd=0.70u ps=0.70u as=0.04p ad=0.04p
+* spice ptx M{0} {1} nmos_vtg m=1 w=5.76u l=0.05u pd=11.62u ps=11.62u as=0.72p ad=0.72p
 
-* spice ptx M{0} {1} pmos_vtg m=19 w=0.91u l=0.05u pd=1.92u ps=1.92u as=0.11p ad=0.11p
+* spice ptx M{0} {1} pmos_vtg m=1 w=17.28u l=0.05u pd=34.66u ps=34.66u as=2.16p ad=2.16p
 
 .SUBCKT pinv_7 A Z vdd gnd
 * INPUT : A 
 * OUTPUT: Z 
 * POWER : vdd 
 * GROUND: gnd 
-Mpinv_pmos Z A vdd vdd pmos_vtg m=19 w=0.91u l=0.05u 
-Mpinv_nmos Z A gnd gnd nmos_vtg m=19 w=0.3025u l=0.05u 
+Mpinv_pmos Z A vdd vdd pmos_vtg m=1 w=17.28u l=0.05u 
+Mpinv_nmos Z A gnd gnd nmos_vtg m=1 w=5.76u l=0.05u 
 .ENDS pinv_7
 
 .SUBCKT pbuf_0 A Z vdd gnd
@@ -7323,56 +7315,56 @@ Mpinv_pmos Z A vdd vdd pmos_vtg m=1 w=0.54u l=0.05u
 Mpinv_nmos Z A gnd gnd nmos_vtg m=1 w=0.18u l=0.05u 
 .ENDS pinv_10
 
-* spice ptx M{0} {1} nmos_vtg m=2 w=0.225u l=0.05u pd=0.55u ps=0.55u as=0.03p ad=0.03p
+* spice ptx M{0} {1} nmos_vtg m=1 w=0.44999999999999996u l=0.05u pd=1.00u ps=1.00u as=0.06p ad=0.06p
 
-* spice ptx M{0} {1} pmos_vtg m=2 w=0.675u l=0.05u pd=1.45u ps=1.45u as=0.08p ad=0.08p
+* spice ptx M{0} {1} pmos_vtg m=1 w=1.3499999999999999u l=0.05u pd=2.80u ps=2.80u as=0.17p ad=0.17p
 
 .SUBCKT pinv_11 A Z vdd gnd
 * INPUT : A 
 * OUTPUT: Z 
 * POWER : vdd 
 * GROUND: gnd 
-Mpinv_pmos Z A vdd vdd pmos_vtg m=2 w=0.675u l=0.05u 
-Mpinv_nmos Z A gnd gnd nmos_vtg m=2 w=0.225u l=0.05u 
+Mpinv_pmos Z A vdd vdd pmos_vtg m=1 w=1.3499999999999999u l=0.05u 
+Mpinv_nmos Z A gnd gnd nmos_vtg m=1 w=0.44999999999999996u l=0.05u 
 .ENDS pinv_11
 
-* spice ptx M{0} {1} nmos_vtg m=5 w=0.2525u l=0.05u pd=0.60u ps=0.60u as=0.03p ad=0.03p
+* spice ptx M{0} {1} nmos_vtg m=1 w=1.26u l=0.05u pd=2.62u ps=2.62u as=0.16p ad=0.16p
 
-* spice ptx M{0} {1} pmos_vtg m=5 w=0.755u l=0.05u pd=1.61u ps=1.61u as=0.09p ad=0.09p
+* spice ptx M{0} {1} pmos_vtg m=1 w=3.78u l=0.05u pd=7.66u ps=7.66u as=0.47p ad=0.47p
 
 .SUBCKT pinv_12 A Z vdd gnd
 * INPUT : A 
 * OUTPUT: Z 
 * POWER : vdd 
 * GROUND: gnd 
-Mpinv_pmos Z A vdd vdd pmos_vtg m=5 w=0.755u l=0.05u 
-Mpinv_nmos Z A gnd gnd nmos_vtg m=5 w=0.2525u l=0.05u 
+Mpinv_pmos Z A vdd vdd pmos_vtg m=1 w=3.78u l=0.05u 
+Mpinv_nmos Z A gnd gnd nmos_vtg m=1 w=1.26u l=0.05u 
 .ENDS pinv_12
 
-* spice ptx M{0} {1} nmos_vtg m=12 w=0.3075u l=0.05u pd=0.71u ps=0.71u as=0.04p ad=0.04p
+* spice ptx M{0} {1} nmos_vtg m=1 w=3.69u l=0.05u pd=7.48u ps=7.48u as=0.46p ad=0.46p
 
-* spice ptx M{0} {1} pmos_vtg m=12 w=0.9225u l=0.05u pd=1.95u ps=1.95u as=0.12p ad=0.12p
+* spice ptx M{0} {1} pmos_vtg m=1 w=11.07u l=0.05u pd=22.24u ps=22.24u as=1.38p ad=1.38p
 
 .SUBCKT pinv_13 A Z vdd gnd
 * INPUT : A 
 * OUTPUT: Z 
 * POWER : vdd 
 * GROUND: gnd 
-Mpinv_pmos Z A vdd vdd pmos_vtg m=12 w=0.9225u l=0.05u 
-Mpinv_nmos Z A gnd gnd nmos_vtg m=12 w=0.3075u l=0.05u 
+Mpinv_pmos Z A vdd vdd pmos_vtg m=1 w=11.07u l=0.05u 
+Mpinv_nmos Z A gnd gnd nmos_vtg m=1 w=3.69u l=0.05u 
 .ENDS pinv_13
 
-* spice ptx M{0} {1} nmos_vtg m=36 w=0.305u l=0.05u pd=0.71u ps=0.71u as=0.04p ad=0.04p
+* spice ptx M{0} {1} nmos_vtg m=1 w=10.98u l=0.05u pd=22.06u ps=22.06u as=1.37p ad=1.37p
 
-* spice ptx M{0} {1} pmos_vtg m=36 w=0.915u l=0.05u pd=1.93u ps=1.93u as=0.11p ad=0.11p
+* spice ptx M{0} {1} pmos_vtg m=1 w=32.94u l=0.05u pd=65.98u ps=65.98u as=4.12p ad=4.12p
 
 .SUBCKT pinv_14 A Z vdd gnd
 * INPUT : A 
 * OUTPUT: Z 
 * POWER : vdd 
 * GROUND: gnd 
-Mpinv_pmos Z A vdd vdd pmos_vtg m=36 w=0.915u l=0.05u 
-Mpinv_nmos Z A gnd gnd nmos_vtg m=36 w=0.305u l=0.05u 
+Mpinv_pmos Z A vdd vdd pmos_vtg m=1 w=32.94u l=0.05u 
+Mpinv_nmos Z A gnd gnd nmos_vtg m=1 w=10.98u l=0.05u 
 .ENDS pinv_14
 
 .SUBCKT pdriver_0 A Z vdd gnd
@@ -7391,30 +7383,30 @@ Xbuf_inv7 Zb6_int Zb7_int vdd gnd pinv_13
 Xbuf_inv8 Zb7_int Z vdd gnd pinv_14
 .ENDS pdriver_0
 
-* spice ptx M{0} {1} nmos_vtg m=3 w=0.21u l=0.05u pd=0.52u ps=0.52u as=0.03p ad=0.03p
+* spice ptx M{0} {1} nmos_vtg m=1 w=0.63u l=0.05u pd=1.36u ps=1.36u as=0.08p ad=0.08p
 
-* spice ptx M{0} {1} pmos_vtg m=3 w=0.63u l=0.05u pd=1.36u ps=1.36u as=0.08p ad=0.08p
+* spice ptx M{0} {1} pmos_vtg m=1 w=1.89u l=0.05u pd=3.88u ps=3.88u as=0.24p ad=0.24p
 
 .SUBCKT pinv_15 A Z vdd gnd
 * INPUT : A 
 * OUTPUT: Z 
 * POWER : vdd 
 * GROUND: gnd 
-Mpinv_pmos Z A vdd vdd pmos_vtg m=3 w=0.63u l=0.05u 
-Mpinv_nmos Z A gnd gnd nmos_vtg m=3 w=0.21u l=0.05u 
+Mpinv_pmos Z A vdd vdd pmos_vtg m=1 w=1.89u l=0.05u 
+Mpinv_nmos Z A gnd gnd nmos_vtg m=1 w=0.63u l=0.05u 
 .ENDS pinv_15
 
-* spice ptx M{0} {1} nmos_vtg m=7 w=0.27u l=0.05u pd=0.64u ps=0.64u as=0.03p ad=0.03p
+* spice ptx M{0} {1} nmos_vtg m=1 w=1.89u l=0.05u pd=3.88u ps=3.88u as=0.24p ad=0.24p
 
-* spice ptx M{0} {1} pmos_vtg m=7 w=0.81u l=0.05u pd=1.72u ps=1.72u as=0.10p ad=0.10p
+* spice ptx M{0} {1} pmos_vtg m=1 w=5.67u l=0.05u pd=11.44u ps=11.44u as=0.71p ad=0.71p
 
 .SUBCKT pinv_16 A Z vdd gnd
 * INPUT : A 
 * OUTPUT: Z 
 * POWER : vdd 
 * GROUND: gnd 
-Mpinv_pmos Z A vdd vdd pmos_vtg m=7 w=0.81u l=0.05u 
-Mpinv_nmos Z A gnd gnd nmos_vtg m=7 w=0.27u l=0.05u 
+Mpinv_pmos Z A vdd vdd pmos_vtg m=1 w=5.67u l=0.05u 
+Mpinv_nmos Z A gnd gnd nmos_vtg m=1 w=1.89u l=0.05u 
 .ENDS pinv_16
 
 .SUBCKT pdriver_1 A Z vdd gnd
@@ -7444,17 +7436,17 @@ Mpnand3_nmos2 net1 B net2 gnd nmos_vtg m=1 w=0.18u l=0.05u
 Mpnand3_nmos3 net2 A gnd gnd nmos_vtg m=1 w=0.18u l=0.05u 
 .ENDS pnand3_0
 
-* spice ptx M{0} {1} nmos_vtg m=22 w=0.295u l=0.05u pd=0.69u ps=0.69u as=0.04p ad=0.04p
+* spice ptx M{0} {1} nmos_vtg m=1 w=6.4799999999999995u l=0.05u pd=13.06u ps=13.06u as=0.81p ad=0.81p
 
-* spice ptx M{0} {1} pmos_vtg m=22 w=0.8825000000000001u l=0.05u pd=1.87u ps=1.87u as=0.11p ad=0.11p
+* spice ptx M{0} {1} pmos_vtg m=1 w=19.439999999999998u l=0.05u pd=38.98u ps=38.98u as=2.43p ad=2.43p
 
 .SUBCKT pinv_17 A Z vdd gnd
 * INPUT : A 
 * OUTPUT: Z 
 * POWER : vdd 
 * GROUND: gnd 
-Mpinv_pmos Z A vdd vdd pmos_vtg m=22 w=0.8825000000000001u l=0.05u 
-Mpinv_nmos Z A gnd gnd nmos_vtg m=22 w=0.295u l=0.05u 
+Mpinv_pmos Z A vdd vdd pmos_vtg m=1 w=19.439999999999998u l=0.05u 
+Mpinv_nmos Z A gnd gnd nmos_vtg m=1 w=6.4799999999999995u l=0.05u 
 .ENDS pinv_17
 
 .SUBCKT pdriver_2 A Z vdd gnd
@@ -7482,8 +7474,8 @@ Xpand3_inv zb_int Z vdd gnd pdriver_2
 * OUTPUT: Z 
 * POWER : vdd 
 * GROUND: gnd 
-Mpinv_pmos Z A vdd vdd pmos_vtg m=19 w=0.91u l=0.05u 
-Mpinv_nmos Z A gnd gnd nmos_vtg m=19 w=0.3025u l=0.05u 
+Mpinv_pmos Z A vdd vdd pmos_vtg m=1 w=17.28u l=0.05u 
+Mpinv_nmos Z A gnd gnd nmos_vtg m=1 w=5.76u l=0.05u 
 .ENDS pinv_18
 
 .SUBCKT pdriver_3 A Z vdd gnd

@@ -81,7 +81,7 @@ cell (rram_64_64_freepdk45){
     dont_use  : true;
     map_only   : true;
     dont_touch : true;
-    area : 24007.656700000003;
+    area : 0;
 
     pg_pin(vdd) {
          voltage_name : VDD;
@@ -283,37 +283,37 @@ cell (rram_64_64_freepdk45){
         internal_power(){
             when : "!csb0 & !web0"; 
             rise_power(scalar){
-                values("8.307308e-01");
+                values("8.187347e-01");
             }
             fall_power(scalar){
-                values("8.307308e-01");
+                values("8.187347e-01");
             }
         }
         internal_power(){
             when : "csb0 & !web0"; 
             rise_power(scalar){
-                values("8.307308e-01");
+                values("8.187347e-01");
             }
             fall_power(scalar){
-                values("8.307308e-01");
+                values("8.187347e-01");
             }
         }
         internal_power(){
             when : "!csb0 & web0"; 
             rise_power(scalar){
-                values("8.307308e-01");
+                values("8.187347e-01");
             }
             fall_power(scalar){
-                values("8.307308e-01");
+                values("8.187347e-01");
             }
         }
         internal_power(){
             when : "csb0 & web0"; 
             rise_power(scalar){
-                values("8.307308e-01");
+                values("8.187347e-01");
             }
             fall_power(scalar){
-                values("8.307308e-01");
+                values("8.187347e-01");
             }
         }
         timing(){ 

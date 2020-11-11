@@ -1213,7 +1213,23 @@ Xsa_d15 bl_15 br_15 data_15 en vdd gnd sense_amp
 .ENDS sense_amp_array
 
 .SUBCKT rw_driver din bl br en vdd vbl vsl gnd
+*inverters for enable and data input
+minP din_bar din vdd vdd pmos_vtg w=360.000000n l=50.000000n
+minN din_bar din gnd gnd nmos_vtg w=180.000000n l=50.000000n
+moutP en_bar en vdd vdd pmos_vtg w=360.000000n l=50.000000n
+moutN en_bar en gnd gnd nmos_vtg w=180.000000n l=50.000000n
 
+*passgate for BL
+mout0P int1 din_bar vbl vdd pmos_vtg w=1440.000000n l=50.000000n
+mout0P2 bl en_bar int1 vdd pmos_vtg w=1440.000000n l=50.000000n
+mout0N bl en int1 gnd nmos_vtg w=720.000000n l=50.000000n
+mout0N2 int1 din vbl gnd nmos_vtg w=720.000000n l=50.000000n
+
+*passgate for BR
+mout1P int2 din_bar vsl vdd pmos_vtg w=1440.000000n l=50.000000n
+mout1P2 br en_bar int2 vdd pmos_vtg w=1440.000000n l=50.000000n
+mout1N br en int2 gnd nmos_vtg w=720.000000n l=50.000000n
+mout1N2 int2 din vsl gnd nmos_vtg w=720.000000n l=50.000000n
 .ENDS rw_driver
 
 

@@ -3,7 +3,7 @@
 
 .SUBCKT cell_1t1r bl sl wl gnd
 * Access transistor
-MT r wlc slc gnd NMOS_VTG W=4500n L=50n
+MT r wlc slc gnd NMOS_VTG W=45n L=50n
 
 * RRAM cell and initial condition (HRS)
 XR r blc gap RRAM

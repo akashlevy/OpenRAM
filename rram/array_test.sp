@@ -35,6 +35,7 @@ Vsl vsl gnd PWL(0 0 2n 0 3n 0 13n 0 14n 0.0 24n 0.0 25n 2 35n 2 36n 2.5 46n 2.5 
 
 * Control
 Vw_en0 w_en0 gnd 1.0
+Vs_en0 s_en0 gnd 0.0
 Vwl_en0 wl_en0 gnd PWL(0 0 2n 0 3n 1 13n 1 14n 1 24n 1 25n 1 35n 1 36n 1 46n 1 47n 0)
 
 .tran 10p 47n

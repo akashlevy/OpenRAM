@@ -384,7 +384,7 @@ Mpinv_nmos Z A gnd gnd nmos_vtg m=1 w=0.36u l=0.05u pd=0.82u ps=0.82u as=0.04p a
 * POWER : vwl 
 * GROUND: gnd 
 Xwld_nand din en g_bar vdd gnd pnand2
-Xwl_driver g_bar wl vdd gnd pinv_0
+Xwl_driver g_bar wl vwl gnd pinv_0
 *MM1 gnd g_bar wl gnd NMOS_VTG W=1440.00n L=50n
 *MM2 vwl g wl gnd NMOS_VTG W=1440.00n L=50n
 .ENDS wordline_driver
@@ -1213,11 +1213,7 @@ Xsa_d15 bl_15 br_15 data_15 en vdd gnd sense_amp
 .ENDS sense_amp_array
 
 .SUBCKT rw_driver din bl br en vdd vbl vsl gnd
-*pass transistor for BL
-Xptbl din en bl vdd vbl gnd wordline_driver
 
-*pass transistor for BR
-Xptsl din en sl vdd vsl gnd wordline_driver
 .ENDS rw_driver
 
 

@@ -372,8 +372,8 @@ XDEC_AND_15 out_3 out_7 decode_15 vdd gnd and2_dec
 * OUTPUT: Z 
 * POWER : vdd 
 * GROUND: gnd 
-Mpinv_pmos Z A vdd vdd pmos_thkox m=1 w=1.08u l=0.05u pd=2.26u ps=2.26u as=0.14p ad=0.14p
-Mpinv_nmos Z A gnd gnd nmos_thkox m=1 w=0.36u l=0.05u pd=0.82u ps=0.82u as=0.04p ad=0.04p
+Mpinv_pmos Z A vdd vdd pmos_vtg m=1 w=1.08u l=0.05u pd=2.26u ps=2.26u as=0.14p ad=0.14p
+Mpinv_nmos Z A gnd gnd nmos_vtg m=1 w=0.36u l=0.05u pd=0.82u ps=0.82u as=0.04p ad=0.04p
 .ENDS pinv_0
 
 .SUBCKT wordline_driver din en wl vwl gnd
@@ -1217,16 +1217,16 @@ moutP en_bar en vdd vdd pmos_vtg w=360.000000n l=50.000000n
 moutN en_bar en gnd gnd nmos_vtg w=180.000000n l=50.000000n
 
 *tristate for BL
-mout0P int1 din_bar vbl vdd pmos_thkox w=1440.000000n l=50.000000n
-mout0P2 bl en_bar int1 vdd pmos_thkox w=1440.000000n l=50.000000n
-mout0N bl en int2 gnd nmos_thkox w=720.000000n l=50.000000n
-mout0N2 int2 din_bar gnd gnd nmos_thkox w=720.000000n l=50.000000n
+mout0P int1 din_bar vbl vdd pmos_vtg w=1440.000000n l=50.000000n
+mout0P2 bl en_bar int1 vdd pmos_vtg w=1440.000000n l=50.000000n
+mout0N bl en int2 gnd nmos_vtg w=720.000000n l=50.000000n
+mout0N2 int2 din_bar gnd gnd nmos_vtg w=720.000000n l=50.000000n
 
 *tristate for BR
-mout1P int3 din vsl vdd pmos_thkox w=1440.000000n l=50.000000n
-mout1P2 br en_bar int3 vdd pmos_thkox w=1440.000000n l=50.000000n
-mout1N br en int4 gnd nmos_thkox w=720.000000n l=50.000000n
-mout1N2 int4 din gnd gnd nmos_thkox w=720.000000n l=50.000000n
+mout1P int3 din vsl vdd pmos_vtg w=1440.000000n l=50.000000n
+mout1P2 br en_bar int3 vdd pmos_vtg w=1440.000000n l=50.000000n
+mout1N br en int4 gnd nmos_vtg w=720.000000n l=50.000000n
+mout1N2 int4 din gnd gnd nmos_vtg w=720.000000n l=50.000000n
 .ENDS rw_driver
 
 
@@ -1484,10 +1484,10 @@ Xdff_r1_c0 din_1 dout_1 dout_bar_1 clk vdd gnd dff_buf_0
 * OUTPUT: Z 
 * POWER : vdd 
 * GROUND: gnd 
-Mpnand2_pmos1 vdd A Z vdd pmos_thkox m=1 w=0.27u l=0.05u pd=0.64u ps=0.64u as=0.03p ad=0.03p
-Mpnand2_pmos2 Z B vdd vdd pmos_thkox m=1 w=0.27u l=0.05u pd=0.64u ps=0.64u as=0.03p ad=0.03p
-Mpnand2_nmos1 Z B net1 gnd nmos_thkox m=1 w=0.18u l=0.05u pd=0.46u ps=0.46u as=0.02p ad=0.02p
-Mpnand2_nmos2 net1 A gnd gnd nmos_thkox m=1 w=0.18u l=0.05u pd=0.46u ps=0.46u as=0.02p ad=0.02p
+Mpnand2_pmos1 vdd A Z vdd pmos_vtg m=1 w=0.27u l=0.05u pd=0.64u ps=0.64u as=0.03p ad=0.03p
+Mpnand2_pmos2 Z B vdd vdd pmos_vtg m=1 w=0.27u l=0.05u pd=0.64u ps=0.64u as=0.03p ad=0.03p
+Mpnand2_nmos1 Z B net1 gnd nmos_vtg m=1 w=0.18u l=0.05u pd=0.46u ps=0.46u as=0.02p ad=0.02p
+Mpnand2_nmos2 net1 A gnd gnd nmos_vtg m=1 w=0.18u l=0.05u pd=0.46u ps=0.46u as=0.02p ad=0.02p
 .ENDS pnand2_0
 
 * spice ptx M{0} {1} nmos_vtg m=1 w=1.08u l=0.05u pd=2.26u ps=2.26u as=0.14p ad=0.14p

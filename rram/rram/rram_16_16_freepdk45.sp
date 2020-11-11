@@ -424,22 +424,22 @@ Xwl_driver wl_bar wl vwl gnd pinv_0
 * POWER : vwl
 * GROUND: gnd 
 * rows: 16 cols: 16
-Xwl_driver_and0 in_0 en wl_0 vdd vwl gnd wordline_driver
-Xwl_driver_and1 in_1 en wl_1 vdd vwl gnd wordline_driver
-Xwl_driver_and2 in_2 en wl_2 vdd vwl gnd wordline_driver
-Xwl_driver_and3 in_3 en wl_3 vdd vwl gnd wordline_driver
-Xwl_driver_and4 in_4 en wl_4 vdd vwl gnd wordline_driver
-Xwl_driver_and5 in_5 en wl_5 vdd vwl gnd wordline_driver
-Xwl_driver_and6 in_6 en wl_6 vdd vwl gnd wordline_driver
-Xwl_driver_and7 in_7 en wl_7 vdd vwl gnd wordline_driver
-Xwl_driver_and8 in_8 en wl_8 vdd vwl gnd wordline_driver
-Xwl_driver_and9 in_9 en wl_9 vdd vwl gnd wordline_driver
-Xwl_driver_and10 in_10 en wl_10 vdd vwl gnd wordline_driver
-Xwl_driver_and11 in_11 en wl_11 vdd vwl gnd wordline_driver
-Xwl_driver_and12 in_12 en wl_12 vdd vwl gnd wordline_driver
-Xwl_driver_and13 in_13 en wl_13 vdd vwl gnd wordline_driver
-Xwl_driver_and14 in_14 en wl_14 vdd vwl gnd wordline_driver
-Xwl_driver_and15 in_15 en wl_15 vdd vwl gnd wordline_driver
+Xwl_driver_and0 in_0 en wl_0 vwl gnd wordline_driver
+Xwl_driver_and1 in_1 en wl_1 vwl gnd wordline_driver
+Xwl_driver_and2 in_2 en wl_2 vwl gnd wordline_driver
+Xwl_driver_and3 in_3 en wl_3 vwl gnd wordline_driver
+Xwl_driver_and4 in_4 en wl_4 vwl gnd wordline_driver
+Xwl_driver_and5 in_5 en wl_5 vwl gnd wordline_driver
+Xwl_driver_and6 in_6 en wl_6 vwl gnd wordline_driver
+Xwl_driver_and7 in_7 en wl_7 vwl gnd wordline_driver
+Xwl_driver_and8 in_8 en wl_8 vwl gnd wordline_driver
+Xwl_driver_and9 in_9 en wl_9 vwl gnd wordline_driver
+Xwl_driver_and10 in_10 en wl_10 vwl gnd wordline_driver
+Xwl_driver_and11 in_11 en wl_11 vwl gnd wordline_driver
+Xwl_driver_and12 in_12 en wl_12 vwl gnd wordline_driver
+Xwl_driver_and13 in_13 en wl_13 vwl gnd wordline_driver
+Xwl_driver_and14 in_14 en wl_14 vwl gnd wordline_driver
+Xwl_driver_and15 in_15 en wl_15 vwl gnd wordline_driver
 .ENDS wordline_driver_array
 
 .SUBCKT pinv_1 A Z vdd gnd

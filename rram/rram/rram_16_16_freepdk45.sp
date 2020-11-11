@@ -10,6 +10,7 @@
 * Program "Calibre xRC"
 * Version "v2007.2_34.24"
 *
+.inc /cad/freepdk/FreePDK45/ncsu_basekit/models/hspice/hspice_nom.include
 .inc ../sp/1t1r.sp
 
 .subckt dff D Q clk vdd gnd

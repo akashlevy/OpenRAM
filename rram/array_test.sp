@@ -29,7 +29,7 @@ Vdin0_15 din0_15 gnd 0
 
 * Control voltage
 Vdd vdd gnd 1.0
-Vwl vwl gnd 2.5
+Vwl vwl gnd 1.0
 Vbl vbl gnd PWL(0 2 2n 2 3n 2 13n 2 14n 2.5 24n 2.5 25n 0 35n 0 36n 0.0 46n 0.0 47n 0)
 Vsl vsl gnd PWL(0 0 2n 0 3n 0 13n 0 14n 0.0 24n 0.0 25n 2 35n 2 36n 2.5 46n 2.5 47n 2.5)
 

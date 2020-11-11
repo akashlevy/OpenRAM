@@ -1,7 +1,7 @@
 `include "disciplines.vams"
 `include "constants.vams"
 
-module RRAM_v0(t, b, nGap);
+module RRAM(t, b, nGap);
     inout t, b, nGap;
     electrical t, b, nGap;
     parameter real g0 = 0.25 from (0:inf);

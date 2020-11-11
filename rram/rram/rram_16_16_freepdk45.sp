@@ -1217,7 +1217,7 @@ Xsa_d15 bl_15 br_15 data_15 en vdd gnd sense_amp
 Xptbl din en bl vdd vbl gnd wordline_driver
 
 *pass transistor for BR
-Xptsl din en sl vdd vsl gnd wordline_driver
+Xptsl din en br vdd vsl gnd wordline_driver
 .ENDS rw_driver
 
 

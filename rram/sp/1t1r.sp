@@ -6,7 +6,7 @@
 MT r wlc slc gnd NMOS_VTG W=45n L=50n
 
 * RRAM cell and initial condition (HRS)
-XR r blc gap rram
+XR r blc gap RRAM
 .ic V(gap)=1.7
 
 * Parasitics

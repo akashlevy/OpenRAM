@@ -34,7 +34,7 @@ Vbl vbl gnd PWL(0 0.0 1n 0.0 2n 2.0 10n 2.0 11n 0.0 12n 0.0 13n 2.0 21n 2.0 22n 
 Vsl vsl gnd PWL(0 0.0 1n 0.0 2n 0.0 10n 0.0 11n 0.0 12n 0.0 13n 0.0 21n 0.0 22n 0.0 23n 0.0 24n 2.0 32n 2.0 33n 0.0 34n 0.0 35n 2.0 43n 2.0 44n 0.0 50n 0.0)
 
 * Control
-Vw_en0 w_en0 gnd 1.0
+Vw_en0 w_en0 gnd 2.0
 Vs_en0 s_en0 gnd 0.0
 Vwl_en0 wl_en0 gnd PWL(0 0 2n 0 3n 2.0 13n 2.0 14n 2.0 24n 2.0 25n 2.0 35n 2.0 36n 2.0 46n 2.0 47n 0)
 

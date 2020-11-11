@@ -6,7 +6,7 @@
 MT r wlc slc gnd NMOS_VTG W=1800n L=50n
 
 * RRAM cell and initial condition (HRS)
-XR blc r gap RRAM I0=1e-5
+XR blc r gap RRAM
 .ic V(gap)=1.5
 .ic V(r)=0
 .ic V(blc)=0

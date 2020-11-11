@@ -1216,17 +1216,17 @@ minN din_bar din gnd gnd nmos_vtg w=180.000000n l=50.000000n
 moutP en_bar en vdd vdd pmos_vtg w=360.000000n l=50.000000n
 moutN en_bar en gnd gnd nmos_vtg w=180.000000n l=50.000000n
 
-*tristate for BL
+*passgate for BL
 mout0P int1 din_bar vbl vdd pmos_vtg w=1440.000000n l=50.000000n
 mout0P2 bl en_bar int1 vdd pmos_vtg w=1440.000000n l=50.000000n
-mout0N bl en int2 gnd nmos_vtg w=720.000000n l=50.000000n
-mout0N2 int2 din_bar gnd gnd nmos_vtg w=720.000000n l=50.000000n
+mout0N bl en int1 gnd nmos_vtg w=720.000000n l=50.000000n
+mout0N2 int1 din vbl gnd nmos_vtg w=720.000000n l=50.000000n
 
-*tristate for BR
-mout1P int3 din vsl vdd pmos_vtg w=1440.000000n l=50.000000n
-mout1P2 br en_bar int3 vdd pmos_vtg w=1440.000000n l=50.000000n
-mout1N br en int4 gnd nmos_vtg w=720.000000n l=50.000000n
-mout1N2 int4 din gnd gnd nmos_vtg w=720.000000n l=50.000000n
+*passgate for BR
+mout1P int2 din_bar vsl vdd pmos_vtg w=1440.000000n l=50.000000n
+mout1P2 br en_bar int2 vdd pmos_vtg w=1440.000000n l=50.000000n
+mout1N br en int2 gnd nmos_vtg w=720.000000n l=50.000000n
+mout1N2 int2 din vsl gnd nmos_vtg w=720.000000n l=50.000000n
 .ENDS rw_driver
 
 

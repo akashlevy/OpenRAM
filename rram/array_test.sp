@@ -9,7 +9,7 @@ Vaddr0_1 addr0_1 gnd 1.8
 Vaddr0_2 addr0_2 gnd 1.8
 Vaddr0_3 addr0_3 gnd 0
 
-* Program individ0nal cells (BL/SL col0nmn control)
+* Program individual cells (BL/SL column control)
 Vdin0_0 din0_0 gnd PWL(0 0 100n 0 110n 1.8 120n 1.8 130n 0 210n 0 220n 1.8 230n 1.8 240n 0 320n 0 330n 1.8 340n 1.8 350n 0 430n 0 440n 1.8 450n 1.8 460n 0 500n 0)
 Vdin0_1 din0_1 gnd PWL(0 0 100n 0 110n 1.8 120n 1.8 130n 0 210n 0 220n 1.8 230n 1.8 240n 0 320n 0 330n 1.8 340n 1.8 350n 0 430n 0 440n 1.8 450n 1.8 460n 0 500n 0)
 Vdin0_2 din0_2 gnd PWL(0 0 100n 0 110n 1.8 120n 1.8 130n 0 210n 0 220n 1.8 230n 1.8 240n 0 320n 0 330n 1.8 340n 1.8 350n 0 430n 0 440n 1.8 450n 1.8 460n 0 500n 0)

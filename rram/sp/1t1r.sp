@@ -10,10 +10,11 @@ XR r blc gap RRAM
 .ic V(gap)=1.7
 
 * Parasitics
+* TODO: use PEX numbers instead
 Rwl wl wlc 0.25
-Cwl wlc gnd 0.2p
+Cwl wlc gnd 0.2f
 Rbl bl blc 0.25
-Cbl blc gnd 0.2p
+Cbl blc gnd 0.2f
 Rsl sl slc 0.25
-Csl slc gnd 0.2p
+Csl slc gnd 0.2f
 .ENDS cell_1t1r

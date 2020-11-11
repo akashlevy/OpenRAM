@@ -1222,8 +1222,8 @@ mout0P bl g_bar vbl vdd pmos_vtg w=1440.000000n l=50.000000n
 mout0N2 bl g vbl gnd nmos_vtg w=720.000000n l=50.000000n
 
 *passgate for BR
-mout1P sl g_bar vsl vdd pmos_vtg w=1440.000000n l=50.000000n
-mout1N2 sl g vsl gnd nmos_vtg w=720.000000n l=50.000000n
+mout1P br g_bar vsl vdd pmos_vtg w=1440.000000n l=50.000000n
+mout1N2 br g vsl gnd nmos_vtg w=720.000000n l=50.000000n
 .ENDS rw_driver
 
 

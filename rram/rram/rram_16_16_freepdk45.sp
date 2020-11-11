@@ -372,8 +372,10 @@ XDEC_AND_15 out_3 out_7 decode_15 vdd gnd and2_dec
 * OUTPUT: Z 
 * POWER : vdd 
 * GROUND: gnd 
-Mpinv_pmos Z A vdd vdd pmos_vtg m=1 w=1.08u l=0.05u pd=2.26u ps=2.26u as=0.14p ad=0.14p
-Mpinv_nmos Z A gnd gnd nmos_vtg m=1 w=0.36u l=0.05u pd=0.82u ps=0.82u as=0.04p ad=0.04p
+Mpinv_pmos Z A vdd vdd pmos_vtg m=1 w=1.08u l=0.05u
+*pd=2.26u ps=2.26u as=0.14p ad=0.14p
+Mpinv_nmos Z A gnd gnd nmos_vtg m=1 w=0.36u l=0.05u
+*pd=0.82u ps=0.82u as=0.04p ad=0.04p
 .ENDS pinv_0
 
 .SUBCKT wordline_driver din en wl vdd vwl gnd
@@ -384,7 +386,7 @@ Mpinv_nmos Z A gnd gnd nmos_vtg m=1 w=0.36u l=0.05u pd=0.82u ps=0.82u as=0.04p a
 * POWER : vwl 
 * GROUND: gnd 
 Xwld_nand din en g_bar vdd gnd pnand2
-Xwl_driver g_bar wl vdd gnd pinv_0
+Xwl_driver g_bar wl vwl gnd pinv_0
 *MM1 gnd g_bar wl gnd NMOS_VTG W=1440.00n L=50n
 *MM2 vwl g wl gnd NMOS_VTG W=1440.00n L=50n
 .ENDS wordline_driver
@@ -1475,10 +1477,14 @@ Xdff_r1_c0 din_1 dout_1 dout_bar_1 clk vdd gnd dff_buf_0
 * OUTPUT: Z 
 * POWER : vdd 
 * GROUND: gnd 
-Mpnand2_pmos1 vdd A Z vdd pmos_vtg m=1 w=0.27u l=0.05u pd=0.64u ps=0.64u as=0.03p ad=0.03p
-Mpnand2_pmos2 Z B vdd vdd pmos_vtg m=1 w=0.27u l=0.05u pd=0.64u ps=0.64u as=0.03p ad=0.03p
-Mpnand2_nmos1 Z B net1 gnd nmos_vtg m=1 w=0.18u l=0.05u pd=0.46u ps=0.46u as=0.02p ad=0.02p
-Mpnand2_nmos2 net1 A gnd gnd nmos_vtg m=1 w=0.18u l=0.05u pd=0.46u ps=0.46u as=0.02p ad=0.02p
+Mpnand2_pmos1 vdd A Z vdd pmos_vtg m=1 w=0.27u l=0.05u
+*pd=0.64u ps=0.64u as=0.03p ad=0.03p
+Mpnand2_pmos2 Z B vdd vdd pmos_vtg m=1 w=0.27u l=0.05u
+*pd=0.64u ps=0.64u as=0.03p ad=0.03p
+Mpnand2_nmos1 Z B net1 gnd nmos_vtg m=1 w=0.18u l=0.05u
+*pd=0.46u ps=0.46u as=0.02p ad=0.02p
+Mpnand2_nmos2 net1 A gnd gnd nmos_vtg m=1 w=0.18u l=0.05u
+*pd=0.46u ps=0.46u as=0.02p ad=0.02p
 .ENDS pnand2_0
 
 * spice ptx M{0} {1} nmos_vtg m=1 w=1.08u l=0.05u pd=2.26u ps=2.26u as=0.14p ad=0.14p

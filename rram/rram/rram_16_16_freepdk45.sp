@@ -384,9 +384,7 @@ Mpinv_nmos Z A gnd gnd nmos_vtg m=1 w=0.36u l=0.05u pd=0.82u ps=0.82u as=0.04p a
 * POWER : vwl 
 * GROUND: gnd 
 Xwld_nand din en g_bar vdd gnd pnand2
-Xwl_driver g_bar g vdd gnd pinv_0
-MM1 gnd g_bar wl gnd NMOS_VTG W=1440.00n L=50n
-MM2 vwl g wl gnd NMOS_VTG W=1440.00n L=50n
+Xwl_driver g_bar g vwl gnd pinv_0
 .ENDS wordline_driver
 
 .SUBCKT wordline_driver_array in_0 in_1 in_2 in_3 in_4 in_5 in_6 in_7 in_8 in_9 in_10 in_11 in_12 in_13 in_14 in_15 wl_0 wl_1 wl_2 wl_3 wl_4 wl_5 wl_6 wl_7 wl_8 wl_9 wl_10 wl_11 wl_12 wl_13 wl_14 wl_15 en vdd vwl gnd

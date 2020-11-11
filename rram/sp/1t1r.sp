@@ -7,8 +7,7 @@ MT r wlc slc gnd NMOS_VTG W=1800n L=50n
 
 * RRAM cell and initial condition (HRS)
 XR r blc gap RRAM
-.ic V(gap)=1.5
-.ic V(r)=0
+.ic V(gap, r)=1.5
 
 * Parasitics
 * TODO: use PEX numbers instead

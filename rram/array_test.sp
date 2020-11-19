@@ -1,6 +1,7 @@
 * Array test
 .inc rram/rram_16_16_freepdk45.sp
 
+* Instantiate array
 Xbank do0nt0_0 do0nt0_1 do0nt0_2 do0nt0_3 do0nt0_4 do0nt0_5 do0nt0_6 do0nt0_7 do0nt0_8 do0nt0_9 do0nt0_10 do0nt0_11 do0nt0_12 do0nt0_13 do0nt0_14 do0nt0_15 din0_0 din0_1 din0_2 din0_3 din0_4 din0_5 din0_6 din0_7 din0_8 din0_9 din0_10 din0_11 din0_12 din0_13 din0_14 din0_15 addr0_0 addr0_1 addr0_2 addr0_3 s_en0 w_en0 wl_en0 vdd vwl vbl vsl gnd bank
 
 * Select row 6 the entire time
@@ -29,7 +30,7 @@ Vdin0_15 din0_15 gnd PWL(0 0 100n 0 110n 1.8 120n 1.8 130n 0 210n 0 220n 1.8 230
 
 * Control voltage
 Vdd vdd gnd 1.8
-Vwl vwl gnd PWL(0 0.5 230n 0.5 231n 1.8 500n 1.8)
+Vwl vwl gnd PWL(0 0.3 230n 0.3 231n 1.8 500n 1.8)
 Vbl vbl gnd PWL(0 0.0 10n 0.0 20n 1.8 100n 1.8 110n 0.0 120n 0.0 130n 1.8 210n 1.8 220n 0.0 230n 0.0 240n 0.0 320n 0.0 330n 0.0 340n 0.0 350n 0.0 430n 0.0 440n 0.0 500n 0.0)
 Vsl vsl gnd PWL(0 0.0 10n 0.0 20n 0.0 100n 0.0 110n 0.0 120n 0.0 130n 0.0 210n 0.0 220n 0.0 230n 0.0 240n 1.8 320n 1.8 330n 0.0 340n 0.0 350n 1.8 430n 1.8 440n 0.0 500n 0.0)
 

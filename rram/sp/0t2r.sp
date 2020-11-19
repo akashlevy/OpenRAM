@@ -1,15 +1,15 @@
 * Include RRAM 
 .hdl rram.va
 
-.SUBCKT cell_1t1r bl sl wl gnd
-* Access transistor
-MT r wlc slc gnd NMOS_VTG W=90n L=50n
-
-* RRAM cell and initial condition (HRS)
-XR blc r gap RRAM
-.ic V(gap)=1.5
-.ic V(r)=0
+.SUBCKT cell_0t2r bl sl wl
+* RRAM cells and initial condition (HRS)
+XR1 blc wlc gap1 RRAM
+XR2 wlc slc gap2 RRAM
+.ic V(gap1)=1.5
+.ic V(gap2)=1.5
+.ic V(mid)=0
 .ic V(blc)=0
+.ic V(slc)=0
 
 * Parasitics
 * TODO: use PEX numbers instead

@@ -7,10 +7,10 @@
 |=========                                                            =========|
 |=========          Usage help: openram-user-group@ucsc.edu           =========|
 |=========        Development help: openram-dev-group@ucsc.edu        =========|
-|=========         Temp dir: /tmp/openram_akashl_22492_temp/          =========|
+|=========         Temp dir: /tmp/openram_akashl_11088_temp/          =========|
 |=========                See LICENSE for license info                =========|
 |==============================================================================|
-** Start: 11/10/2020 09:09:16
+** Start: 11/20/2020 06:17:46
 Technology: freepdk45
 Total size: 256 bits
 Word size: 16
@@ -35,8 +35,8 @@ Output files are:
 /miele/users/akashl/OpenRAM/rram/rram/rram_16_16_freepdk45.py
 /miele/users/akashl/OpenRAM/rram/rram/rram_16_16_freepdk45.html
 /miele/users/akashl/OpenRAM/rram/rram/rram_16_16_freepdk45.log
-** Submodules: 0.8 seconds
-** SRAM creation: 0.9 seconds
+** Submodules: 0.9 seconds
+** SRAM creation: 1.0 seconds
 SP: Writing to /miele/users/akashl/OpenRAM/rram/rram/rram_16_16_freepdk45.sp
 ** Spice writing: 0.0 seconds
 LVS: Writing to /miele/users/akashl/OpenRAM/rram/rram/rram_16_16_freepdk45.lvs.sp
@@ -49,4 +49,4 @@ Datasheet: Writing to /miele/users/akashl/OpenRAM/rram/rram/rram_16_16_freepdk45
 ** Datasheet: 0.0 seconds
 Verilog: Writing to /miele/users/akashl/OpenRAM/rram/rram/rram_16_16_freepdk45.v
 ** Verilog: 0.0 seconds
-** End: 1.2 seconds
+** End: 1.5 seconds

@@ -17,9 +17,9 @@ Vcol_rd vcol_rd gnd 0.5
 Vcol_wr vcol_wr gnd 1.8
 
 * Set WL voltages for different levels
-Vwl_lrs vwl_lrs gnd 0.66
-Vwl_mrs1 vwl_mrs1 gnd 0.58
-Vwl_mrs2 vwl_mrs2 gnd 0.5
+Vwl_lrs vwl_lrs gnd 0.55
+Vwl_mrs1 vwl_mrs1 gnd 0.5
+Vwl_mrs2 vwl_mrs2 gnd 0.45
 vwl_hrs vwl_hrs gnd 1.8
 
 * Select row 6 the entire time
@@ -49,8 +49,8 @@ Vdin0_15 din0_15 gnd 0
 * Control
 Vw_en0 w_en0 gnd PWL(0 0 1000n 0 1100n 1.8 3400n 1.8 3500n 0 5000n 0)
 Vr_en0 r_en0 gnd PWL(0 1.8 1000n 1.8 1100n 0 3400n 0 3500n 1.8 5000n 1.8)
-Vtarg_0 targ_0 gnd PWL(0 0 1000n 0 1100n 0 1200n 0 1300n 0 2100n 0 2200n 1.8 2300n 1.8 2400n 0 3200n 0 3300n 1.8 3400n 1.8 3500n 0 4300n 0 4400n 1.8 4500n 1.8 4600n 0 5000n 0)
-Vtarg_1 targ_1 gnd PWL(0 1.8 1000n 1.8 1100n 1.8 1200n 1.8 1300n 0 2100n 0 2200n 0 2300n 0 2400n 0 3200n 0 3300n 1.8 3400n 1.8 3500n 0 4300n 0 4400n 0 4500n 0 4600n 0 5000n 0)
+Vtarg_0 targ_0 gnd PWL(0 0 1000n 0 1100n 0 1200n 0 1300n 0 2100n 0 2200n 1.8 2300n 1.8 2400n 0 3200n 0 3300n 1.8 3400n 1.8 3800n 0 4300n 0 4400n 1.8 4500n 1.8 4600n 0 5000n 0)
+Vtarg_1 targ_1 gnd PWL(0 1.8 1000n 1.8 1100n 1.8 1200n 1.8 1300n 0 2100n 0 2200n 0 2300n 0 2400n 0 3200n 0 3300n 1.8 3400n 1.8 3800n 0 4300n 0 4400n 0 4500n 0 4600n 0 5000n 0)
 
 .tran 10p 5000n
 .option post=2 runlvl=5 accurate method=gear vntol=1n

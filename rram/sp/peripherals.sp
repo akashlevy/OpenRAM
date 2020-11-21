@@ -18,8 +18,8 @@ XXpre2x4_nand_3 in_0 in_1 out_3 vdd gnd pnand2
 .ENDS hierarchical_predecode2x4_inv
 
 .SUBCKT rw_driver din bl br w_en wl_en w_set w_rst vdd vcol gnd
-Xbl_nand din w_set wl_en bl_bar vdd gnd w_setpnand3
-Xbr_nand din w_rst w_en br_bar vdd gnd w_setpnand3
+Xbl_nand din w_set wl_en bl_bar vdd gnd pnand3
+Xbr_nand din w_rst w_en br_bar vdd gnd pnand3
 Xbl_driver bl_bar bl vcol gnd pinv_10
 Xbr_driver br_bar br vcol gnd pinv_10
 .ENDS rw_driver

@@ -44,10 +44,10 @@ Xbr_driver br_bar br vcol gnd pinv_10
 * Decode the target (2x4) and use pass gates on input voltage options
 * NOTE: w_set is the same as w_hrs_bar
 Xdec_targ targ_0 targ_1 w_lrs_bar w_mrs1_bar w_mrs2_bar w_set vdd gnd hierarchical_predecode2x4_inv
-Xpg_lrs vw_lrs w_lrs_bar vwl vdd gnd pg_bar_driver
-Xpg_mrs1 vw_mrs1 w_mrs1_bar vwl vdd gnd pg_bar_driver
-Xpg_mrs2 vw_mrs2 w_mrs2_bar vwl vdd gnd pg_bar_driver
-Xpg_hrs vw_hrs w_set vwl vdd gnd pg_bar_driver
+Xpg_lrs vwl_lrs w_lrs_bar vwl vdd gnd pg_bar_driver
+Xpg_mrs1 vwl_mrs1 w_mrs1_bar vwl vdd gnd pg_bar_driver
+Xpg_mrs2 vwl_mrs2 w_mrs2_bar vwl vdd gnd pg_bar_driver
+Xpg_hrs vwl_hrs w_set vwl vdd gnd pg_bar_driver
 
 * Column voltage (BL, SL)
 Xpg_rd vcol_rd r_en vbl vdd gnd pg_driver
@@ -61,7 +61,7 @@ Xpg_wr vcol_wr w_en vbl vdd gnd pg_driver
 * OUTPUT : vout 
 * POWER : vdd 
 * GROUND : gnd 
-Xinv_lrs A A_bar vdd gnd pinv
+Xinv_pg A A_bar vdd gnd pinv
 Mpg_pmos vout A_bar vin vdd pmos_vtg m=1 w=3.51u l=0.05u pd=7.12u ps=7.12u as=0.44p ad=0.44p
 Mpg_nmos vout A vin gnd nmos_vtg m=1 w=1.17u l=0.05u pd=2.44u ps=2.44u as=0.15p ad=0.15p
 .ENDS pg_driver
@@ -73,7 +73,7 @@ Mpg_nmos vout A vin gnd nmos_vtg m=1 w=1.17u l=0.05u pd=2.44u ps=2.44u as=0.15p 
 * OUTPUT : vout 
 * POWER : vdd 
 * GROUND : gnd 
-Xinv_lrs A_bar A vdd gnd pinv
+Xinv_pg A_bar A vdd gnd pinv
 Mpg_pmos vout A_bar vin vdd pmos_vtg m=1 w=3.51u l=0.05u pd=7.12u ps=7.12u as=0.44p ad=0.44p
 Mpg_nmos vout A vin gnd nmos_vtg m=1 w=1.17u l=0.05u pd=2.44u ps=2.44u as=0.15p ad=0.15p
 .ENDS pg_bar_driver

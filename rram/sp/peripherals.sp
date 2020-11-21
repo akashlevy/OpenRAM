@@ -50,8 +50,8 @@ Xpg_mrs2 vwl_mrs2 w_mrs2_bar vwl vdd gnd pg_bar_driver
 Xpg_hrs vwl_hrs w_set vwl vdd gnd pg_bar_driver
 
 * Column voltage (BL, SL)
-Xpg_rd vcol_rd r_en vbl vdd gnd pg_driver
-Xpg_wr vcol_wr w_en vbl vdd gnd pg_driver
+Xpg_rd vcol_rd r_en vcol vdd gnd pg_driver
+Xpg_wr vcol_wr w_en vcol vdd gnd pg_driver
 .ENDS supply_mux
 
 * Pass gate driver (active high input)

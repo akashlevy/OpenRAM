@@ -13,7 +13,7 @@ Vdd vdd gnd 1.8
 * Vref3 vref1 gnd 0.15
 
 * Read and write voltages
-Vcol_rd vcol_rd gnd 0.2
+Vcol_rd vcol_rd gnd 0.5
 Vcol_wr vcol_wr gnd 1.8
 
 * Set WL voltages for different levels

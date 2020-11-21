@@ -7,10 +7,10 @@ Xbank dout0_0 dout0_1 dout0_2 dout0_3 dout0_4 dout0_5 dout0_6 dout0_7 dout0_8 do
 * VDD
 Vdd vdd gnd 1.8
 
-* Reference voltages for sensing
-Vref1 vref1 gnd 0.05
-Vref2 vref2 gnd 0.10
-Vref3 vref1 gnd 0.15
+* * Reference voltages for sensing
+* Vref1 vref1 gnd 0.05
+* Vref2 vref2 gnd 0.10
+* Vref3 vref1 gnd 0.15
 
 * Read and write voltages
 Vcol_rd vcol_rd gnd 0.2

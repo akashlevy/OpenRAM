@@ -29,7 +29,7 @@ Vaddr0_2 addr0_2 gnd 1.8
 Vaddr0_3 addr0_3 gnd 0
 
 * Program individual cells (BL/SL column control)
-Vdin0_0 din0_0 gnd PWL(0 0 100n 0 110n 1.8 120n 1.8 130n 0 210n 0 220n 1.8 230n 1.8 240n 0 320n 0 330n 1.8 340n 1.8 350n 0 430n 0 440n 1.8 450n 1.8 460n 0 500n 0)
+Vdin0_0 din0_0 gnd PWL(0 0 1000n 0 1100n 1.8 1200n 1.8 1300n 0 2100n 0 2200n 1.8 2300n 1.8 2400n 0 3200n 0 3300n 1.8 3400n 1.8 3500n 0 4300n 0 4400n 1.8 4500n 1.8 4600n 0 5000n 0)
 Vdin0_1 din0_1 gnd 0
 Vdin0_2 din0_2 gnd 0
 Vdin0_3 din0_3 gnd 0
@@ -47,11 +47,11 @@ Vdin0_14 din0_14 gnd 0
 Vdin0_15 din0_15 gnd 0
 
 * Control
-Vw_en0 w_en0 gnd PWL(0 0 100n 0 110n 1.8 340n 1.8 350n 0 500n 0)
-Vr_en0 r_en0 gnd PWL(0 1.8 100n 1.8 110n 0 340n 0 350n 1.8 500n 1.8)
-Vtarg_0 targ_0 gnd 1.8
-Vtarg_1 targ_1 gnd 0
+Vw_en0 w_en0 gnd PWL(0 0 1000n 0 1100n 1.8 3400n 1.8 3500n 0 5000n 0)
+Vr_en0 r_en0 gnd PWL(0 1.8 1000n 1.8 1100n 0 3400n 0 3500n 1.8 5000n 1.8)
+Vtarg_0 targ_0 gnd PWL(0 1.8 1000n 1.8 1100n 1.8 1200n 1.8 1300n 0 2100n 0 2200n 1.8 2300n 1.8 2400n 0 3200n 0 3300n 1.8 3400n 1.8 3500n 0 4300n 0 4400n 1.8 4500n 1.8 4600n 0 5000n 0)
+Vtarg_1 targ_1 gnd PWL(0 0 1000n 0 1100n 1.8 1200n 1.8 1300n 0 2100n 0 2200n 0 2300n 0 2400n 0 3200n 0 3300n 1.8 3400n 1.8 3500n 0 4300n 0 4400n 0 4500n 0 4600n 0 5000n 0)
 
-.tran 10p 500n
+.tran 10p 5000n
 .option post=2 runlvl=5 accurate method=gear vntol=1n
 .end

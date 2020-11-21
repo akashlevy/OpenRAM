@@ -1,0 +1,64 @@
+`include "discipline.h"
+`include "constants.h"
+
+// $Date: 1997/08/28 05:48:45 $
+// $Revision: 1.1 $
+//
+//
+// Based on the OVI Verilog-A Language Reference Manual, version 1.0 1996
+//
+//
+ 
+
+
+//--------------------
+// i_comparator
+//
+// -  i_comparator
+//
+// sigin:	(val,flow)
+// sigref:	reference to which 'sigin' is compared (val,flow)
+// sigout:	comparator output (val,flow)
+//
+// INSTANCE parameters
+//    sigout_high  = maximum output of the comparator  (val)
+//    sigout_low   = minimum output of the comparator  (val)
+//    sigin_offset = subtracted from 'sigin' before comparason to sigref (val)
+//    comp_slope   = determines the sensitivity of the comparator []
+//
+// MODEL parameters
+//    {none}
+//
+// Compares ('sigin'-'sigin_offset') to 'sigref' - the output is related to
+// their difference by a tanh relationship.
+//
+// If the difference >>> 'sigref', 'sigout' is 'sigout_high'.
+// If the difference = 'sigref', 'sigout' is ('sigout_high' + 'sigout_low')/2.
+// If the difference <<< 'sigref', 'sigout' is 'sigout_low'.
+// Intermediate points are fitting to a tanh scaled by 'comp_slope'.
+//
+
+module i_comparator(sigin, sigref, sigout);
+input sigin, sigref;
+output sigout;
+electrical sigin, sigref, sigout;
+parameter real sigout_high = 1.8;
+parameter real sigout_low = 0;
+parameter real sigin_offset = 0;
+parameter real comp_slope = 1000;
+
+
+   analog begin
+
+      @ ( initial_step ) begin
+	 if (sigout_high <= sigout_low) begin
+	    $display("Range specification error.  sigout_high = (%E) less than sigout_low = (%E).\n", sigout_high, sigout_low );
+	    $finish;
+	 end
+      end
+
+      V(sigout) <+ 0.5 * (sigout_high - sigout_low)
+                        * tanh(comp_slope*(I(sigin, sigref)- sigin_offset))
+                      + (sigout_high + sigout_low)/2;
+   end
+endmodule

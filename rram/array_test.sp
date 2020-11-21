@@ -17,8 +17,8 @@ Vcol_rd vcol_rd gnd 0.5
 Vcol_wr vcol_wr gnd 1.8
 
 * Set WL voltages for different levels
-Vwl_lrs vwl_lrs gnd 0.8
-Vwl_mrs1 vwl_mrs1 gnd 0.65
+Vwl_lrs vwl_lrs gnd 0.66
+Vwl_mrs1 vwl_mrs1 gnd 0.58
 Vwl_mrs2 vwl_mrs2 gnd 0.5
 vwl_hrs vwl_hrs gnd 1.8
 

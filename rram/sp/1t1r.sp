@@ -12,7 +12,7 @@ XR blc r gap RRAM I0=1e-4 Vel0=100
 .ic V(blc)=0
 
 * Gap is w.r.t. bottom electrode
-.probe V(gap,blc)
+.probe V(gap,r)
 
 * Parasitics
 * TODO: use PEX numbers instead

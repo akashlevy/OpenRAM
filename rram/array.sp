@@ -11,7 +11,8 @@
 * Version "v2007.2_34.24"
 *
 .inc /cad/freepdk/FreePDK45/ncsu_basekit/models/hspice/hspice_nom.include
-.inc ../sp/1t1r.sp
+.inc sp/1t1r.sp
+.inc sp/peripherals.sp
 
 .subckt dff D Q clk vdd gnd
 *
@@ -376,17 +377,15 @@ Mpinv_pmos Z A vdd vdd pmos_vtg m=1 w=1.08u l=0.05u pd=2.26u ps=2.26u as=0.14p a
 Mpinv_nmos Z A gnd gnd nmos_vtg m=1 w=0.36u l=0.05u pd=0.82u ps=0.82u as=0.04p ad=0.04p
 .ENDS pinv_0
 
-.SUBCKT wordline_driver din en wl vdd vwl gnd
-* INPUT : din 
-* INPUT : en 
-* OUTPUT: wl 
+.SUBCKT wordline_driver A B Z vdd vwl gnd
+* INPUT : A 
+* INPUT : B 
+* OUTPUT: Z 
 * POWER : vdd 
 * POWER : vwl 
 * GROUND: gnd 
-Xwld_nand din en g_bar vdd gnd pnand2
-Xwl_driver g_bar wl vwl gnd pinv_0
-*MM1 gnd g_bar wl gnd NMOS_VTG W=1440.00n L=50n
-*MM2 vwl g wl gnd NMOS_VTG W=1440.00n L=50n
+Xwld_nand A B zb_int vdd gnd pnand2
+Xwl_driver zb_int Z vwl gnd pinv_0
 .ENDS wordline_driver
 
 .SUBCKT wordline_driver_array in_0 in_1 in_2 in_3 in_4 in_5 in_6 in_7 in_8 in_9 in_10 in_11 in_12 in_13 in_14 in_15 wl_0 wl_1 wl_2 wl_3 wl_4 wl_5 wl_6 wl_7 wl_8 wl_9 wl_10 wl_11 wl_12 wl_13 wl_14 wl_15 en vdd vwl gnd
@@ -424,7 +423,7 @@ Xwl_driver g_bar wl vwl gnd pinv_0
 * OUTPUT: wl_15 
 * INPUT : en 
 * POWER : vdd 
-* POWER : vwl
+* POWER : vwl 
 * GROUND: gnd 
 * rows: 16 cols: 16
 Xwl_driver_and0 in_0 en wl_0 vdd vwl gnd wordline_driver
@@ -486,7 +485,7 @@ Xbuf_inv2 zb_int Z vdd gnd pinv_1
 * OUTPUT: wl_14 
 * OUTPUT: wl_15 
 * POWER : vdd 
-* POWER: vwl
+* POWER : vwl 
 * GROUND: gnd 
 Xrow_decoder addr_0 addr_1 addr_2 addr_3 dec_out_0 dec_out_1 dec_out_2 dec_out_3 dec_out_4 dec_out_5 dec_out_6 dec_out_7 dec_out_8 dec_out_9 dec_out_10 dec_out_11 dec_out_12 dec_out_13 dec_out_14 dec_out_15 vdd gnd hierarchical_decoder
 Xwordline_driver dec_out_0 dec_out_1 dec_out_2 dec_out_3 dec_out_4 dec_out_5 dec_out_6 dec_out_7 dec_out_8 dec_out_9 dec_out_10 dec_out_11 dec_out_12 dec_out_13 dec_out_14 dec_out_15 wl_0 wl_1 wl_2 wl_3 wl_4 wl_5 wl_6 wl_7 wl_8 wl_9 wl_10 wl_11 wl_12 wl_13 wl_14 wl_15 wl_en vdd vwl gnd wordline_driver_array
@@ -999,69 +998,6 @@ Xbit_r17_c0 bl_0_0 br_0_0 wl_0_17 vdd gnd dummy_cell_6t
 Xbit_r18_c0 bl_0_0 br_0_0 wl_0_18 vdd gnd dummy_cell_6t
 .ENDS dummy_array_1
 
-.SUBCKT replica_bitcell_array rbl_bl_0_0 rbl_br_0_0 bl_0_0 br_0_0 bl_0_1 br_0_1 bl_0_2 br_0_2 bl_0_3 br_0_3 bl_0_4 br_0_4 bl_0_5 br_0_5 bl_0_6 br_0_6 bl_0_7 br_0_7 bl_0_8 br_0_8 bl_0_9 br_0_9 bl_0_10 br_0_10 bl_0_11 br_0_11 bl_0_12 br_0_12 bl_0_13 br_0_13 bl_0_14 br_0_14 bl_0_15 br_0_15 rbl_wl_0_0 wl_0_0 wl_0_1 wl_0_2 wl_0_3 wl_0_4 wl_0_5 wl_0_6 wl_0_7 wl_0_8 wl_0_9 wl_0_10 wl_0_11 wl_0_12 wl_0_13 wl_0_14 wl_0_15 vdd gnd
-* INOUT : rbl_bl_0_0 
-* INOUT : rbl_br_0_0 
-* INOUT : bl_0_0 
-* INOUT : br_0_0 
-* INOUT : bl_0_1 
-* INOUT : br_0_1 
-* INOUT : bl_0_2 
-* INOUT : br_0_2 
-* INOUT : bl_0_3 
-* INOUT : br_0_3 
-* INOUT : bl_0_4 
-* INOUT : br_0_4 
-* INOUT : bl_0_5 
-* INOUT : br_0_5 
-* INOUT : bl_0_6 
-* INOUT : br_0_6 
-* INOUT : bl_0_7 
-* INOUT : br_0_7 
-* INOUT : bl_0_8 
-* INOUT : br_0_8 
-* INOUT : bl_0_9 
-* INOUT : br_0_9 
-* INOUT : bl_0_10 
-* INOUT : br_0_10 
-* INOUT : bl_0_11 
-* INOUT : br_0_11 
-* INOUT : bl_0_12 
-* INOUT : br_0_12 
-* INOUT : bl_0_13 
-* INOUT : br_0_13 
-* INOUT : bl_0_14 
-* INOUT : br_0_14 
-* INOUT : bl_0_15 
-* INOUT : br_0_15 
-* INPUT : rbl_wl_0_0 
-* INPUT : wl_0_0 
-* INPUT : wl_0_1 
-* INPUT : wl_0_2 
-* INPUT : wl_0_3 
-* INPUT : wl_0_4 
-* INPUT : wl_0_5 
-* INPUT : wl_0_6 
-* INPUT : wl_0_7 
-* INPUT : wl_0_8 
-* INPUT : wl_0_9 
-* INPUT : wl_0_10 
-* INPUT : wl_0_11 
-* INPUT : wl_0_12 
-* INPUT : wl_0_13 
-* INPUT : wl_0_14 
-* INPUT : wl_0_15 
-* POWER : vdd 
-* GROUND: gnd 
-* rbl: None left_rbl: None right_rbl: None
-Xbitcell_array bl_0_0 br_0_0 bl_0_1 br_0_1 bl_0_2 br_0_2 bl_0_3 br_0_3 bl_0_4 br_0_4 bl_0_5 br_0_5 bl_0_6 br_0_6 bl_0_7 br_0_7 bl_0_8 br_0_8 bl_0_9 br_0_9 bl_0_10 br_0_10 bl_0_11 br_0_11 bl_0_12 br_0_12 bl_0_13 br_0_13 bl_0_14 br_0_14 bl_0_15 br_0_15 wl_0_0 wl_0_1 wl_0_2 wl_0_3 wl_0_4 wl_0_5 wl_0_6 wl_0_7 wl_0_8 wl_0_9 wl_0_10 wl_0_11 wl_0_12 wl_0_13 wl_0_14 wl_0_15 vdd gnd bitcell_array
-Xreplica_col_0 rbl_bl_0_0 rbl_br_0_0 gnd rbl_wl_0_0 wl_0_0 wl_0_1 wl_0_2 wl_0_3 wl_0_4 wl_0_5 wl_0_6 wl_0_7 wl_0_8 wl_0_9 wl_0_10 wl_0_11 wl_0_12 wl_0_13 wl_0_14 wl_0_15 gnd vdd gnd replica_column
-Xdummy_row_0 rbl_wl_0_0 vdd gnd dummy_array
-Xdummy_row_bot gnd vdd gnd dummy_array
-Xdummy_row_top gnd vdd gnd dummy_array
-Xdummy_col_left gnd rbl_wl_0_0 wl_0_0 wl_0_1 wl_0_2 wl_0_3 wl_0_4 wl_0_5 wl_0_6 wl_0_7 wl_0_8 wl_0_9 wl_0_10 wl_0_11 wl_0_12 wl_0_13 wl_0_14 wl_0_15 gnd vdd gnd dummy_array_0
-Xdummy_col_right gnd rbl_wl_0_0 wl_0_0 wl_0_1 wl_0_2 wl_0_3 wl_0_4 wl_0_5 wl_0_6 wl_0_7 wl_0_8 wl_0_9 wl_0_10 wl_0_11 wl_0_12 wl_0_13 wl_0_14 wl_0_15 gnd vdd gnd dummy_array_1
-.ENDS replica_bitcell_array
 
 .SUBCKT precharge_0 bl br en_bar vdd
 * OUTPUT: bl 
@@ -1212,22 +1148,9 @@ Xsa_d14 bl_14 br_14 data_14 en vdd gnd sense_amp
 Xsa_d15 bl_15 br_15 data_15 en vdd gnd sense_amp
 .ENDS sense_amp_array
 
-.SUBCKT rw_driver din bl br en vdd vbl vsl gnd
-*inverter
-Xwld_nand din en g_bar vdd gnd pnand2
-Xwl_driver g_bar g vdd gnd pinv_0
-
-*passgate for BL
-mout0P bl g_bar vbl vdd pmos_vtg w=1440.000000n l=50.000000n
-mout0N2 bl g vbl gnd nmos_vtg w=720.000000n l=50.000000n
-
-*passgate for BR
-mout1P br g_bar vsl vdd pmos_vtg w=1440.000000n l=50.000000n
-mout1N2 br g vsl gnd nmos_vtg w=720.000000n l=50.000000n
-.ENDS rw_driver
 
 
-.SUBCKT rw_driver_array data_0 data_1 data_2 data_3 data_4 data_5 data_6 data_7 data_8 data_9 data_10 data_11 data_12 data_13 data_14 data_15 bl_0 br_0 bl_1 br_1 bl_2 br_2 bl_3 br_3 bl_4 br_4 bl_5 br_5 bl_6 br_6 bl_7 br_7 bl_8 br_8 bl_9 br_9 bl_10 br_10 bl_11 br_11 bl_12 br_12 bl_13 br_13 bl_14 br_14 bl_15 br_15 en vdd vbl vsl gnd
+.SUBCKT rw_driver_array data_0 data_1 data_2 data_3 data_4 data_5 data_6 data_7 data_8 data_9 data_10 data_11 data_12 data_13 data_14 data_15 bl_0 br_0 bl_1 br_1 bl_2 br_2 bl_3 br_3 bl_4 br_4 bl_5 br_5 bl_6 br_6 bl_7 br_7 bl_8 br_8 bl_9 br_9 bl_10 br_10 bl_11 br_11 bl_12 br_12 bl_13 br_13 bl_14 br_14 bl_15 br_15 en wl_en w_set vdd vcol gnd
 * INPUT : data_0 
 * INPUT : data_1 
 * INPUT : data_2 
@@ -1277,30 +1200,32 @@ mout1N2 br g vsl gnd nmos_vtg w=720.000000n l=50.000000n
 * OUTPUT: bl_15 
 * OUTPUT: br_15 
 * INPUT : en 
+* INPUT : wl_en 
+* INPUT : w_set 
 * POWER : vdd 
-* POWER : vbl 
-* POWER : vsl 
+* POWER : vcol 
 * GROUND: gnd 
 * word_size 16
-Xrw_driver0 data_0 bl_0 br_0 en vdd vbl vsl gnd rw_driver
-Xrw_driver1 data_1 bl_1 br_1 en vdd vbl vsl gnd rw_driver
-Xrw_driver2 data_2 bl_2 br_2 en vdd vbl vsl gnd rw_driver
-Xrw_driver3 data_3 bl_3 br_3 en vdd vbl vsl gnd rw_driver
-Xrw_driver4 data_4 bl_4 br_4 en vdd vbl vsl gnd rw_driver
-Xrw_driver5 data_5 bl_5 br_5 en vdd vbl vsl gnd rw_driver
-Xrw_driver6 data_6 bl_6 br_6 en vdd vbl vsl gnd rw_driver
-Xrw_driver7 data_7 bl_7 br_7 en vdd vbl vsl gnd rw_driver
-Xrw_driver8 data_8 bl_8 br_8 en vdd vbl vsl gnd rw_driver
-Xrw_driver9 data_9 bl_9 br_9 en vdd vbl vsl gnd rw_driver
-Xrw_driver10 data_10 bl_10 br_10 en vdd vbl vsl gnd rw_driver
-Xrw_driver11 data_11 bl_11 br_11 en vdd vbl vsl gnd rw_driver
-Xrw_driver12 data_12 bl_12 br_12 en vdd vbl vsl gnd rw_driver
-Xrw_driver13 data_13 bl_13 br_13 en vdd vbl vsl gnd rw_driver
-Xrw_driver14 data_14 bl_14 br_14 en vdd vbl vsl gnd rw_driver
-Xrw_driver15 data_15 bl_15 br_15 en vdd vbl vsl gnd rw_driver
+Xrw_driver0 data_0 bl_0 br_0 en wl_en w_set w_rst vdd vcol gnd rw_driver
+Xrw_driver1 data_1 bl_1 br_1 en wl_en w_set w_rst vdd vcol gnd rw_driver
+Xrw_driver2 data_2 bl_2 br_2 en wl_en w_set w_rst vdd vcol gnd rw_driver
+Xrw_driver3 data_3 bl_3 br_3 en wl_en w_set w_rst vdd vcol gnd rw_driver
+Xrw_driver4 data_4 bl_4 br_4 en wl_en w_set w_rst vdd vcol gnd rw_driver
+Xrw_driver5 data_5 bl_5 br_5 en wl_en w_set w_rst vdd vcol gnd rw_driver
+Xrw_driver6 data_6 bl_6 br_6 en wl_en w_set w_rst vdd vcol gnd rw_driver
+Xrw_driver7 data_7 bl_7 br_7 en wl_en w_set w_rst vdd vcol gnd rw_driver
+Xrw_driver8 data_8 bl_8 br_8 en wl_en w_set w_rst vdd vcol gnd rw_driver
+Xrw_driver9 data_9 bl_9 br_9 en wl_en w_set w_rst vdd vcol gnd rw_driver
+Xrw_driver10 data_10 bl_10 br_10 en wl_en w_set w_rst vdd vcol gnd rw_driver
+Xrw_driver11 data_11 bl_11 br_11 en wl_en w_set w_rst vdd vcol gnd rw_driver
+Xrw_driver12 data_12 bl_12 br_12 en wl_en w_set w_rst vdd vcol gnd rw_driver
+Xrw_driver13 data_13 bl_13 br_13 en wl_en w_set w_rst vdd vcol gnd rw_driver
+Xrw_driver14 data_14 bl_14 br_14 en wl_en w_set w_rst vdd vcol gnd rw_driver
+Xrw_driver15 data_15 bl_15 br_15 en wl_en w_set w_rst vdd vcol gnd rw_driver
+Xinv_set w_set w_rst vdd gnd pinv
 .ENDS rw_driver_array
 
-.SUBCKT port_data bl_0 br_0 bl_1 br_1 bl_2 br_2 bl_3 br_3 bl_4 br_4 bl_5 br_5 bl_6 br_6 bl_7 br_7 bl_8 br_8 bl_9 br_9 bl_10 br_10 bl_11 br_11 bl_12 br_12 bl_13 br_13 bl_14 br_14 bl_15 br_15 dout_0 dout_1 dout_2 dout_3 dout_4 dout_5 dout_6 dout_7 dout_8 dout_9 dout_10 dout_11 dout_12 dout_13 dout_14 dout_15 din_0 din_1 din_2 din_3 din_4 din_5 din_6 din_7 din_8 din_9 din_10 din_11 din_12 din_13 din_14 din_15 s_en w_en vdd vbl vsl gnd
+.SUBCKT port_data bl_0 br_0 bl_1 br_1 bl_2 br_2 bl_3 br_3 bl_4 br_4 bl_5 br_5 bl_6 br_6 bl_7 br_7 bl_8 br_8 bl_9 br_9 bl_10 br_10 bl_11 br_11 bl_12 br_12 bl_13 br_13 bl_14 br_14 bl_15 br_15 dout_0 dout_1 dout_2 dout_3 dout_4 dout_5 dout_6 dout_7 dout_8 dout_9 dout_10 dout_11 dout_12 dout_13 dout_14 dout_15 din_0 din_1 din_2 din_3 din_4 din_5 din_6 din_7 din_8 din_9 din_10 din_11 din_12 din_13 din_14 din_15 r_en w_en wl_en w_set vdd vcol gnd
 * INOUT : bl_0 
 * INOUT : br_0 
 * INOUT : bl_1 
@@ -1365,17 +1290,18 @@ Xrw_driver15 data_15 bl_15 br_15 en vdd vbl vsl gnd rw_driver
 * INPUT : din_13 
 * INPUT : din_14 
 * INPUT : din_15 
-* INPUT : s_en 
+* INPUT : r_en 
 * INPUT : w_en 
+* INPUT : wl_en 
+* INPUT : w_set 
 * POWER : vdd 
-* POWER : vbl 
-* POWER : vsl
-* GROUND: gnd
-Xsense_amp_array0 dout_0 bl_0 br_0 dout_1 bl_1 br_1 dout_2 bl_2 br_2 dout_3 bl_3 br_3 dout_4 bl_4 br_4 dout_5 bl_5 br_5 dout_6 bl_6 br_6 dout_7 bl_7 br_7 dout_8 bl_8 br_8 dout_9 bl_9 br_9 dout_10 bl_10 br_10 dout_11 bl_11 br_11 dout_12 bl_12 br_12 dout_13 bl_13 br_13 dout_14 bl_14 br_14 dout_15 bl_15 br_15 s_en vdd gnd sense_amp_array
-Xrw_driver_array0 din_0 din_1 din_2 din_3 din_4 din_5 din_6 din_7 din_8 din_9 din_10 din_11 din_12 din_13 din_14 din_15 bl_0 br_0 bl_1 br_1 bl_2 br_2 bl_3 br_3 bl_4 br_4 bl_5 br_5 bl_6 br_6 bl_7 br_7 bl_8 br_8 bl_9 br_9 bl_10 br_10 bl_11 br_11 bl_12 br_12 bl_13 br_13 bl_14 br_14 bl_15 br_15 w_en vdd vbl vsl gnd rw_driver_array
+* POWER : vcol 
+* GROUND: gnd 
+Xsense_amp_array0 dout_0 bl_0 br_0 dout_1 bl_1 br_1 dout_2 bl_2 br_2 dout_3 bl_3 br_3 dout_4 bl_4 br_4 dout_5 bl_5 br_5 dout_6 bl_6 br_6 dout_7 bl_7 br_7 dout_8 bl_8 br_8 dout_9 bl_9 br_9 dout_10 bl_10 br_10 dout_11 bl_11 br_11 dout_12 bl_12 br_12 dout_13 bl_13 br_13 dout_14 bl_14 br_14 dout_15 bl_15 br_15 r_en vdd gnd sense_amp_array
+Xrw_driver_array0 din_0 din_1 din_2 din_3 din_4 din_5 din_6 din_7 din_8 din_9 din_10 din_11 din_12 din_13 din_14 din_15 bl_0 br_0 bl_1 br_1 bl_2 br_2 bl_3 br_3 bl_4 br_4 bl_5 br_5 bl_6 br_6 bl_7 br_7 bl_8 br_8 bl_9 br_9 bl_10 br_10 bl_11 br_11 bl_12 br_12 bl_13 br_13 bl_14 br_14 bl_15 br_15 w_en wl_en w_set vdd vcol gnd rw_driver_array
 .ENDS port_data
 
-.SUBCKT bank dout0_0 dout0_1 dout0_2 dout0_3 dout0_4 dout0_5 dout0_6 dout0_7 dout0_8 dout0_9 dout0_10 dout0_11 dout0_12 dout0_13 dout0_14 dout0_15 din0_0 din0_1 din0_2 din0_3 din0_4 din0_5 din0_6 din0_7 din0_8 din0_9 din0_10 din0_11 din0_12 din0_13 din0_14 din0_15 addr0_0 addr0_1 addr0_2 addr0_3 s_en0 w_en0 wl_en0 vdd vwl vbl vsl gnd
+.SUBCKT bank dout0_0 dout0_1 dout0_2 dout0_3 dout0_4 dout0_5 dout0_6 dout0_7 dout0_8 dout0_9 dout0_10 dout0_11 dout0_12 dout0_13 dout0_14 dout0_15 din0_0 din0_1 din0_2 din0_3 din0_4 din0_5 din0_6 din0_7 din0_8 din0_9 din0_10 din0_11 din0_12 din0_13 din0_14 din0_15 addr0_0 addr0_1 addr0_2 addr0_3 r_en0 w_en0 targ_0 targ_1 vdd vwl_lrs vwl_mrs1 vwl_mrs2 vwl_hrs vcol_rd vcol_wr vref1 vref2 vref3 gnd
 * OUTPUT: dout0_0 
 * OUTPUT: dout0_1 
 * OUTPUT: dout0_2 
@@ -1412,17 +1338,30 @@ Xrw_driver_array0 din_0 din_1 din_2 din_3 din_4 din_5 din_6 din_7 din_8 din_9 di
 * INPUT : addr0_1 
 * INPUT : addr0_2 
 * INPUT : addr0_3 
-* INPUT : s_en0 
+* INPUT : r_en0 
 * INPUT : w_en0 
-* INPUT : wl_en0 
+* INPUT : targ_0 
+* INPUT : targ_1 
 * POWER : vdd 
-* POWER : vwl
-* POWER : vbl
-* POWER : vsl
+* POWER : vwl_lrs 
+* POWER : vwl_mrs1 
+* POWER : vwl_mrs2 
+* POWER : vwl_hrs 
+* POWER : vcol_rd 
+* POWER : vcol_wr 
+* POWER : vref1 
+* POWER : vref2 
+* POWER : vref3 
 * GROUND: gnd 
 Xbitcell_array bl_0_0 br_0_0 bl_0_1 br_0_1 bl_0_2 br_0_2 bl_0_3 br_0_3 bl_0_4 br_0_4 bl_0_5 br_0_5 bl_0_6 br_0_6 bl_0_7 br_0_7 bl_0_8 br_0_8 bl_0_9 br_0_9 bl_0_10 br_0_10 bl_0_11 br_0_11 bl_0_12 br_0_12 bl_0_13 br_0_13 bl_0_14 br_0_14 bl_0_15 br_0_15 wl_0_0 wl_0_1 wl_0_2 wl_0_3 wl_0_4 wl_0_5 wl_0_6 wl_0_7 wl_0_8 wl_0_9 wl_0_10 wl_0_11 wl_0_12 wl_0_13 wl_0_14 wl_0_15 gnd bitcell_array
-Xport_data0 bl_0_0 br_0_0 bl_0_1 br_0_1 bl_0_2 br_0_2 bl_0_3 br_0_3 bl_0_4 br_0_4 bl_0_5 br_0_5 bl_0_6 br_0_6 bl_0_7 br_0_7 bl_0_8 br_0_8 bl_0_9 br_0_9 bl_0_10 br_0_10 bl_0_11 br_0_11 bl_0_12 br_0_12 bl_0_13 br_0_13 bl_0_14 br_0_14 bl_0_15 br_0_15 dout0_0 dout0_1 dout0_2 dout0_3 dout0_4 dout0_5 dout0_6 dout0_7 dout0_8 dout0_9 dout0_10 dout0_11 dout0_12 dout0_13 dout0_14 dout0_15 din0_0 din0_1 din0_2 din0_3 din0_4 din0_5 din0_6 din0_7 din0_8 din0_9 din0_10 din0_11 din0_12 din0_13 din0_14 din0_15 s_en0 w_en0 vdd vbl vsl gnd port_data
+Xport_data0 bl_0_0 br_0_0 bl_0_1 br_0_1 bl_0_2 br_0_2 bl_0_3 br_0_3 bl_0_4 br_0_4 bl_0_5 br_0_5 bl_0_6 br_0_6 bl_0_7 br_0_7 bl_0_8 br_0_8 bl_0_9 br_0_9 bl_0_10 br_0_10 bl_0_11 br_0_11 bl_0_12 br_0_12 bl_0_13 br_0_13 bl_0_14 br_0_14 bl_0_15 br_0_15 dout0_0 dout0_1 dout0_2 dout0_3 dout0_4 dout0_5 dout0_6 dout0_7 dout0_8 dout0_9 dout0_10 dout0_11 dout0_12 dout0_13 dout0_14 dout0_15 din0_0 din0_1 din0_2 din0_3 din0_4 din0_5 din0_6 din0_7 din0_8 din0_9 din0_10 din0_11 din0_12 din0_13 din0_14 din0_15 r_en0 w_en0 wl_en0 w_set vdd vcol gnd port_data
 Xport_address0 addr0_0 addr0_1 addr0_2 addr0_3 wl_en0 wl_0_0 wl_0_1 wl_0_2 wl_0_3 wl_0_4 wl_0_5 wl_0_6 wl_0_7 wl_0_8 wl_0_9 wl_0_10 wl_0_11 wl_0_12 wl_0_13 wl_0_14 wl_0_15 vdd vwl gnd port_address
+Xsupply_mux r_en0 w_en0 targ_0 targ_1 vdd vwl_lrs vwl_mrs1 vwl_mrs2 vwl_hrs vcol_rd vcol_wr w_set vwl vcol gnd supply_mux
+
+* WL enable signal
+Xr_en0_inv0 r_en0 r_en0_bar vdd gnd pinv
+Xw_en0_inv0 w_en0 w_en0_bar vdd gnd pinv
+Xwl_en_nand0 r_en0_bar w_en0_bar wl_en0 vdd gnd pnand2
 .ENDS bank
 
 * spice ptx M{0} {1} nmos_vtg m=1 w=0.18u l=0.05u pd=0.46u ps=0.46u as=0.02p ad=0.02p
@@ -1811,12 +1750,12 @@ Xdload_8_2 out n_8_2 vdd gnd pinv_17
 Xdload_8_3 out n_8_3 vdd gnd pinv_17
 .ENDS delay_chain
 
-.SUBCKT control_logic_rw csb web clk rbl_bl s_en w_en p_en_bar wl_en clk_buf vdd gnd
+.SUBCKT control_logic_rw csb web clk rbl_bl r_en w_en p_en_bar wl_en clk_buf vdd gnd
 * INPUT : csb 
 * INPUT : web 
 * INPUT : clk 
 * INPUT : rbl_bl 
-* OUTPUT: s_en 
+* OUTPUT: r_en 
 * OUTPUT: w_en 
 * OUTPUT: p_en_bar 
 * OUTPUT: wl_en 
@@ -1832,7 +1771,7 @@ Xand2_gated_clk_buf clk_buf cs gated_clk_buf vdd gnd pand2
 Xbuf_wl_en gated_clk_bar wl_en vdd gnd pdriver_1
 Xrbl_bl_delay_inv rbl_bl_delay rbl_bl_delay_bar vdd gnd pinv_16
 Xw_en_and we rbl_bl_delay_bar gated_clk_bar w_en vdd gnd pand3
-Xbuf_s_en_and rbl_bl_delay gated_clk_bar we_bar s_en vdd gnd pand3_0
+Xbuf_r_en_and rbl_bl_delay gated_clk_bar we_bar r_en vdd gnd pand3_0
 Xdelay_chain rbl_bl rbl_bl_delay vdd gnd delay_chain
 Xnand_p_en_bar gated_clk_buf rbl_bl_delay p_en_bar_unbuf vdd gnd pnand2_1
 Xbuf_p_en_bar p_en_bar_unbuf p_en_bar vdd gnd pdriver_1
@@ -1880,8 +1819,8 @@ Xbuf_p_en_bar p_en_bar_unbuf p_en_bar vdd gnd pdriver_1
 * OUTPUT: dout0[15] 
 * POWER : vdd 
 * GROUND: gnd 
-Xbank0 dout0[0] dout0[1] dout0[2] dout0[3] dout0[4] dout0[5] dout0[6] dout0[7] dout0[8] dout0[9] dout0[10] dout0[11] dout0[12] dout0[13] dout0[14] dout0[15] rbl_bl0 bank_din0[0] bank_din0[1] bank_din0[2] bank_din0[3] bank_din0[4] bank_din0[5] bank_din0[6] bank_din0[7] bank_din0[8] bank_din0[9] bank_din0[10] bank_din0[11] bank_din0[12] bank_din0[13] bank_din0[14] bank_din0[15] a0[0] a0[1] a0[2] a0[3] s_en0 p_en_bar0 w_en0 wl_en0 vdd gnd bank
-Xcontrol0 csb0 web0 clk0 rbl_bl0 s_en0 w_en0 p_en_bar0 wl_en0 clk_buf0 vdd gnd control_logic_rw
+Xbank0 dout0[0] dout0[1] dout0[2] dout0[3] dout0[4] dout0[5] dout0[6] dout0[7] dout0[8] dout0[9] dout0[10] dout0[11] dout0[12] dout0[13] dout0[14] dout0[15] rbl_bl0 bank_din0[0] bank_din0[1] bank_din0[2] bank_din0[3] bank_din0[4] bank_din0[5] bank_din0[6] bank_din0[7] bank_din0[8] bank_din0[9] bank_din0[10] bank_din0[11] bank_din0[12] bank_din0[13] bank_din0[14] bank_din0[15] a0[0] a0[1] a0[2] a0[3] r_en0 w_en0 targ_0 targ_1 vdd vwl_lrs vwl_mrs1 vwl_mrs2 vwl_hrs vcol_rd vcol_wr vref1 vref2 vref3 gnd bank
+Xcontrol0 csb0 web0 clk0 rbl_bl0 r_en0 w_en0 p_en_bar0 wl_en0 clk_buf0 vdd gnd control_logic_rw
 Xrow_address0 addr0[0] addr0[1] addr0[2] addr0[3] a0[0] a0[1] a0[2] a0[3] clk_buf0 vdd gnd row_addr_dff
 Xdata_dff0 din0[0] din0[1] din0[2] din0[3] din0[4] din0[5] din0[6] din0[7] din0[8] din0[9] din0[10] din0[11] din0[12] din0[13] din0[14] din0[15] bank_din0[0] bank_din0[1] bank_din0[2] bank_din0[3] bank_din0[4] bank_din0[5] bank_din0[6] bank_din0[7] bank_din0[8] bank_din0[9] bank_din0[10] bank_din0[11] bank_din0[12] bank_din0[13] bank_din0[14] bank_din0[15] clk_buf0 vdd gnd data_dff
 .ENDS rram_16_16_freepdk45
